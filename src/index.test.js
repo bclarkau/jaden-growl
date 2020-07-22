@@ -1,7 +1,11 @@
-import { ExampleComponent } from '.'
+import { Growl } from './components/Growl'
+import renderer from "react-test-renderer";
 
-describe('ExampleComponent', () => {
-  it('is truthy', () => {
-    expect(ExampleComponent).toBeTruthy()
-  })
-})
+describe('GrowlRender', () => {
+  it('renders', () => {
+    const tree = renderer
+      .create(<Growl onDismissed={() => setActive(false)} active={active} message="Hello World!" timeout={2000} />)
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+});

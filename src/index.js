@@ -1,6 +1,4 @@
-import React from 'react'
-import styles from './styles.module.css'
+import { Growl, useGrowl } from './components/Growl'
 
-export const ExampleComponent = ({ text }) => {
-  return <div className={styles.test}>Example Component: {text}</div>
-}
+// Export the Growl component
+export { Growl, useGrowl };
