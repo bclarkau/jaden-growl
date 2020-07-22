@@ -7,7 +7,7 @@
 ## Install
 
 ```bash
-npm install --save jaden-growl
+yarn add jaden-growl
 ```
 
 ## Usage
@@ -15,14 +15,21 @@ npm install --save jaden-growl
 ```jsx
 import React, { Component } from 'react'
 
-import MyComponent from 'jaden-growl'
+import { Growl, useGrowl } from 'jaden-growl'
 import 'jaden-growl/dist/index.css'
 
-class Example extends Component {
-  render() {
-    return <MyComponent />
-  }
+const App = () => {
+  const [active, setActive] = useGrowl()
+
+  return <div className="App">
+    <header className="App-header">
+      <a className="App-link" href="#" onClick={() => void setActive(true)}>Click here to activate the growl</a>
+    </header>
+    <Growl onDismissed={() => setActive(false)} active={active} message="Hello World!" timeout={2000} />
+  </div>
 }
+
+export default App
 ```
 
 ## License
